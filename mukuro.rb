@@ -5,6 +5,7 @@ require 'discordrb'
 
 bot = Discordrb::Commands::CommandBot.new token: "NDEwMDQ3MjY5MTExMzMyODc0.DVnd2A.nrVAcSB2bg5WgZPdCRQKnU-palE", prefix: "m."
 chocolate = 0
+quote = {:czak => "Hello..."}
 #============================================================================================================
 #======================================        CONFIG
 #============================================================================================================
@@ -14,7 +15,7 @@ end
 #============================================================================================================
 #======================================        CENSOR
 #============================================================================================================
-bot.message(contains: /retard|retarded|fag|dick|dyke|nigga|nigger|motherfucker|vagina/i ) do |event|
+bot.message(contains: /retard|retarded|pico|picu|piku|pik0|piko|fuck|fucking|dipshit|asshole|fag|dick|dyke|nigga|nigger|motherfucker|vagina/i ) do |event|
     event.respond "#{event.user.mention}, you have said a word that is forbidden by the rules.\n**You have been warned** not to repeat the same action."
   end
 #============================================================================================================
@@ -56,7 +57,6 @@ bot.command :hug do |_event, *args|
   "#{args[0]}'s SPATK rose!", 
   "#{args[0]}'s SPDEF rose!", 
   "#{args[0]}'s SPE rose!", 
-  "#{args[0]}'s LCK rose!"
   ]
   _event << statusraise.sample
    
@@ -95,4 +95,20 @@ bot.command :me do |event|
   event << "**User Game:** `#{event.user.game}`" unless event.user.game.nil?
   event << "**User Avatar:** https://cdn.discordapp.com/avatars/#{event.user.id}/#{event.user.avatar_id}.webp?size=1024"
 end
+#============================================================================================================
+#======================================        QUOTES
+#============================================================================================================
+bot.command :quote do |event, *args|
+  if quote == nil
+    "There are no quotes added. Add one with **m.addquote**!"
+  else
+   event << quote[:czak]
+  end
+end
+
+bot.command :addquote do |event, *args|
+ quote[:czak] << args.join(' ')
+ event << "Quote successfully added. ```#{args.join(' ')}```"
+end
+
 bot.run
