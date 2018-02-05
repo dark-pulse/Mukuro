@@ -2,9 +2,8 @@
 #======================================        REQUIREMENTS
 #============================================================================================================
 require 'discordrb'
-require 'execjs'
-require 'sqlite3'
-bot = Discordrb::Commands::CommandBot.new token: "NDA5MzY4NzE3NTQ2NDg3ODI4.DVinRg.tQQ4_YevAjm__Uu_BreZ4gsW-Cs", prefix: "m."
+
+bot = Discordrb::Commands::CommandBot.new token: "NDEwMDQ3MjY5MTExMzMyODc0.DVnd2A.nrVAcSB2bg5WgZPdCRQKnU-palE", prefix: "m."
 chocolate = 0
 #============================================================================================================
 #======================================        CONFIG
@@ -26,11 +25,19 @@ bot.message(with_text: /m.123/i ) do |event|
   exit
 end
 #============================================================================================================
-#======================================        OTHERS
+#======================================        TESTS
 #============================================================================================================
 
-bot.message(contains: "tests") do |event|
-    event.respond tt.sample
+bot.command :tests do |event|
+  event.channel.send_embed do |embed|
+    embed.title = "Achievement complete!"
+    embed.description = "#{event.author.mention} has successfully written a embed message."
+    embed.color = Discordrb::ColourRGB.new(0x46576B).combined
+    embed.add_field(name: "This is a field.", value: "And this is the field's description.", inline: true)
+    embed.add_field(name: "This is another field.", value: "And this is the other field's description.", inline: true)
+    embed.add_field(name: "This is a field but...", value: "Isn't something different here?", inline: false)
+    embed.add_field(name: "Oh, I see now!", value: "So this is what it was about!", inline: false)
+  end
 end
 
 #============================================================================================================
@@ -39,25 +46,33 @@ end
 
 
 bot.command :hug do |_event, *args|
-  if "#{args.join(' ')}" == "#{event.mention}"  
-  _event << "#{_event.user.mention} has hugged #{args.join(' ')}"
-  statusraise = [
-  "#{args.join(' ')}'s ATK rose!", 
-  "#{args.join(' ')}'s DEF rose!", 
-  "#{args.join(' ')}'s SPATK rose!", 
-  "#{args.join(' ')}'s SPDEF rose!", 
-  "#{args.join(' ')}'s SPE rose!", 
-  "#{args.join(' ')}'s LCK rose!"
-  ]
-    _event << statusraise.sample
-
-  else
+  if _event.message.mentions[0] == nil
     "You have to mention an user!"
+  else
+  _event << "#{_event.user.mention} has hugged #{args[0]}"
+  statusraise = [
+  "#{args[0]}'s ATK rose!", 
+  "#{args[0]}'s DEF rose!", 
+  "#{args[0]}'s SPATK rose!", 
+  "#{args[0]}'s SPDEF rose!", 
+  "#{args[0]}'s SPE rose!", 
+  "#{args[0]}'s LCK rose!"
+  ]
+  _event << statusraise.sample
+   
   end
 end
 
+
 bot.command :help do |event|
-event.user.pm "Hello. My name is Mukuro!\nI'm a bot, but please don't discriminate me! :cold_sweat:\n\n__As of my current version, I possess the following commands__\n**m.hug** | **m.help** |\n\nAlso, if you say something wrong to the others, I'll come by and punish you! :angry:"
+event << ":heart: Sure! I've sent you a message with everything I could! :heart:"
+event.user.pm.send_embed do |embed|
+  embed.title = "Hello!"
+  embed.color = Discordrb::ColourRGB.new(0x46576B).combined
+  embed.add_field(name: "Introduction", value: "Hello. My name is Mukuro!\nI'm a bot, but please don't discriminate me! :cold_sweat:", inline: true)
+  embed.add_field(name: "Commands", value: "__As of my current version, I possess the following commands__\n**m.hug** | **m.help** |", inline: true)
+  embed.add_field(name: "Finishing...", value: "Also, if you say something wrong to the others, I'll come by and punish you! :angry:", inline: true)
+end
 end
 
 bot.command :p do |event|
@@ -67,5 +82,17 @@ end
 bot.message(with_text: "givep") do |event|
 chocolate += 1
 end
-
+#============================================================================================================
+#======================================        USER INFO
+#============================================================================================================
+bot.command :me do |event|
+  event << '**__User Info For You__**'
+  event << ''
+  event << "**User ID:** `#{event.user.id}`"
+  event << "**User Discrim:** `#{event.user.discrim}`"
+  event << "**Username:** `#{event.user.name}`"
+  event << "**User Nickname:** `#{event.user.nick}`" unless event.user.nick.nil?
+  event << "**User Game:** `#{event.user.game}`" unless event.user.game.nil?
+  event << "**User Avatar:** https://cdn.discordapp.com/avatars/#{event.user.id}/#{event.user.avatar_id}.webp?size=1024"
+end
 bot.run
