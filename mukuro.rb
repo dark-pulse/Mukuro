@@ -2,52 +2,70 @@
 #======================================        REQUIREMENTS
 #============================================================================================================
 require 'discordrb'
-bot = Discordrb::Bot.new token: "NDA5MzY4NzE3NTQ2NDg3ODI4.DVdl8w.BtzCJbNCSDVfNMZXkfHtTKrC1A0" 
+require 'execjs'
+require 'sqlite3'
+bot = Discordrb::Commands::CommandBot.new token: "NDA5MzY4NzE3NTQ2NDg3ODI4.DVinRg.tQQ4_YevAjm__Uu_BreZ4gsW-Cs", prefix: "m."
+chocolate = 0
 #============================================================================================================
 #======================================        CONFIG
 #============================================================================================================
-mods = [271097183292489729, 253502477498974213, 286838535066222594, 287225292408225792]
-
 bot.ready do |event|
-  bot.game = "Pokémon Reborn"
+bot.game = 'Pokémon Reborn'
 end
-
-bot.message(with_text: "!!count") do |event|
-  loop do
-  sleep 4 * 60
-  event.respond "4m have passed"
-  end
-     end
 #============================================================================================================
 #======================================        CENSOR
 #============================================================================================================
-bot.message(contains: /trap|retard|retarded|fag|dick|dyke|nigga|nigger|test|motherfucker|vagina/i ) do |event|
+bot.message(contains: /retard|retarded|fag|dick|dyke|nigga|nigger|motherfucker|vagina/i ) do |event|
     event.respond "#{event.user.mention}, you have said a word that is forbidden by the rules.\n**You have been warned** not to repeat the same action."
   end
 #============================================================================================================
 #======================================        ANNOUNCEMENT
 #============================================================================================================
-
+bot.message(with_text: /m.123/i ) do |event|
+  bot.send_message(event.channel.id, 'Mukuro will sleep now** . . .**')
+  exit
+end
 #============================================================================================================
 #======================================        OTHERS
 #============================================================================================================
 
-bot.message(contains: "Hello") do |event|
-    event.respond "You said #{event.message.content} after greeting, so..."
+bot.message(contains: "tests") do |event|
+    event.respond tt.sample
 end
 
-  bot.message(with_text: "PM me") do |event|
-    event.respond "Sure, I sent a PM to you :heart:"
-    event.user.pm("Hello. You have requested a PM from me. Unfortunately I cannot do anything else, sorry. :persevere:")
-  end
-
-  bot.message(with_text: "m.help") do |event|
-    event.respond "Sure, I sent a PM to you with all I could do :triumph: :heart:"
-    event.user.pm("Hello. My name's **Mukuro** and I am Reborn Mafia Discord Server's own customized bot :smile:\nIf you want to know the commands, I'll start with the simplest to the hardest. Try to keep up with me! :wink:\n\n**hug**: Hugs!\n\n...It looks like the list is over :sweat:\nI'm sorry, but I'll be able to do more things, I promise!")
-  end
 #============================================================================================================
 #======================================        OTHERS
 #============================================================================================================
 
+
+bot.command :hug do |_event, *args|
+  if "#{args.join(' ')}" == "#{event.mention}"  
+  _event << "#{_event.user.mention} has hugged #{args.join(' ')}"
+  statusraise = [
+  "#{args.join(' ')}'s ATK rose!", 
+  "#{args.join(' ')}'s DEF rose!", 
+  "#{args.join(' ')}'s SPATK rose!", 
+  "#{args.join(' ')}'s SPDEF rose!", 
+  "#{args.join(' ')}'s SPE rose!", 
+  "#{args.join(' ')}'s LCK rose!"
+  ]
+    _event << statusraise.sample
+
+  else
+    "You have to mention an user!"
+  end
+end
+
+bot.command :help do |event|
+event.user.pm "Hello. My name is Mukuro!\nI'm a bot, but please don't discriminate me! :cold_sweat:\n\n__As of my current version, I possess the following commands__\n**m.hug** | **m.help** |\n\nAlso, if you say something wrong to the others, I'll come by and punish you! :angry:"
+end
+
+bot.command :p do |event|
+"The number of p's that were given today is #{chocolate}."
+end
+
+bot.message(with_text: "givep") do |event|
+chocolate += 1
+end
 
 bot.run
