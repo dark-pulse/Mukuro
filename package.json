@@ -1,0 +1,23 @@
+{
+  "name": "mukuro",
+  "version": "1.0.0",
+  "description": "nonee",
+  "main": "index.js",
+  "dependencies": {
+    "discord.js": "^11.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sparkin6155/Mukuro.git"
+  },
+  "author": "Venus",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sparkin6155/Mukuro/issues"
+  },
+  "homepage": "https://github.com/Sparkin6155/Mukuro#readme"
+}
