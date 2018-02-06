@@ -5,7 +5,7 @@ require 'discordrb'
 
 bot = Discordrb::Commands::CommandBot.new token: "NDEwMDQ3MjY5MTExMzMyODc0.DVnd2A.nrVAcSB2bg5WgZPdCRQKnU-palE", prefix: "m."
 chocolate = 0
-quote = {:czak => "Hello..."}
+warnings = Hash.new
 #============================================================================================================
 #======================================        CONFIG
 #============================================================================================================
@@ -17,7 +17,21 @@ end
 #============================================================================================================
 bot.message(contains: /retard|retarded|pico|picu|piku|pik0|piko|fuck|fucking|dipshit|asshole|fag|dick|dyke|nigga|nigger|motherfucker|vagina/i ) do |event|
     event.respond "#{event.user.mention}, you have said a word that is forbidden by the rules.\n**You have been warned** not to repeat the same action."
+    if warnings["event.user.name"] > 10
+      event.respond "You have more than **10 Warnings**. You will be banned shortly..."
+      elsif warnings["event.user.name"] > 5
+        event.respond "You have more than **5 Warnings**. I advise you to stop breaking the rules if you do not want to be banned."
+        end
+        if warnings["event.user.name"] = nil
+          warnings["event.user.name"] = 0
+        end
+          warnings[:event.user.name] += 1
   end
+
+bot.command :mywarns do |event|
+  "Currently, you have " + warnings["event.user.name"] + "warning(s)..."
+    end
+
 #============================================================================================================
 #======================================        ANNOUNCEMENT
 #============================================================================================================
@@ -49,6 +63,8 @@ end
 bot.command :hug do |_event, *args|
   if _event.message.mentions[0] == nil
     "You have to mention an user!"
+  elsif _event.message.mentions[0] == _event.user.mention
+    "#{_event.user.mention} cries in loneliness for having no one to hug them... :sob:"
   else
   _event << "#{_event.user.mention} has hugged #{args[0]}"
   statusraise = [
