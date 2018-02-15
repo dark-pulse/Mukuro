@@ -21,8 +21,10 @@ bot.message(from: "Mafioso Divergent" ) do |event|
 end
 
 bot.message(with_text: "!?count") do |event|
-    loop sleep 5 * 59 
-    bot.run
-       end
-       
+    event.respond "Umm..."
+      loop sleep 5 * 59 
+      bot.run
+          event.respond "Umm..."
+         end
+
 bot.run
