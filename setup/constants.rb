@@ -1,3 +1,3 @@
-﻿    TOKEN_ID = 'NDE3NzUyNzAwMDY3OTA1NTM2.DXXr2Q.Ik8B-DngPkEok83JIkRA0Uk-tCE'
+﻿    TOKEN_ID = 'NDE3ODA1NDM4ODk4MTQzMjMy.DXYq1A.NqEDsQZsy-PZcjltHZsLkqgpIQY'
     PREFIX = '-'
     GAME = 'Osíris | -help'
