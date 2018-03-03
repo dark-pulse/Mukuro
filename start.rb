@@ -1,8 +1,10 @@
 require 'discordrb'
+require 'yaml'
 require_relative "setup/constants"
-require_relative "setup/joinleave"
+require_relative "scripts/load"
 #Code
-bot = Discordrb::Commands::CommandBot.new token: TOKEN_ID, prefix: PREFIX
+CONFIG = YAML.load_file('config.yaml')
+bot = Discordrb::Commands::CommandBot.new token: CONFIG['token'], prefix: "-"
 
 bot.ready { bot.game = GAME }
 #Start
