@@ -1,124 +1,41 @@
-# gemstone
+# THIS DOES NOT WORK ATM!
 
-This is a template for a modular [Discord](https://discordapp.com/) chat bot using meew0's [discordrb](https://github.com/meew0/discordrb).
 
-This template has several objectives:
+# Very Simple Bot to explain you how to set up a discordrb bot on Heroku
 
-- Provide a modular bot template for novice users that is easy to build on and extend
-- A structure that is YARDoc friendly so you can generate awesome docs for your bot right away for your users
-- Rubocop friendly
-- Implements [bundler](http://bundler.io/) for managing your gems
+## Sign up
 
-## Setup
+1. Sign up at [Heroku](https://www.heroku.com)
+2. Sign up at [Github](https://github.com/)
 
-1. `git clone https://github.com/z64/gemstone.git`
-1. `cd gemstone`
-1. delete the `.git` folder (`rm -rf .git`)
-1. `git init` to start a new repo for your bot
-1. `gem install bundler` and `gem install rake` if you haven't yet
-1. `rake install`
+## Install ruby and git
 
-Follow steps in the next section to configure your bot and do a first-time run.
+1. Install ruby: I recommend installing ruby through [rvm.io](https://rvm.io/)
+2. Install [git](https://git-scm.com/downloads)
+ 1. If you don't know how to use git I recommend the [try.github.io](https://try.github.io/) interactive guide
+ 2. Set up [git](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup)
 
-## Configuring and running your bot
+## Fork this repository
+Create a fork of this repository ([docs](https://help.github.com/articles/fork-a-repo/))
 
-Make a copy of [config-template.yaml](https://github.com/z64/gemstone/blob/master/data/config-template.yaml) and rename it to `config.yaml` *exactly*.
-
-Fill out each field provided to set up a minimal discord bot, with a few commands and an event to get you started.
-
-To run your bot, open your terminal and run `rake` in the top level folder of your bot. You're free to make something like a bash script, or Windows batch file that will do this for you at the click of an icon. You can also do other things before running your bot this way.
-
-**For example,** here is my `run.sh` file:
-
-```bash
-while true
-do
-  echo "updating from git.."
-  git pull
-
-  echo "running rubocop.."
-  rubocop src
-
-  echo "updating documentation.."
-  yardoc src
-
-  echo "starting bot.."
-  rake
-done
+## Run the bot locally
+1. Verify you have successfully installed ruby by running `ruby -v`
+2. `git clone` your fork ([docs](https://help.github.com/articles/cloning-a-repository/))
+3. `gem install bundler`
+4. `bundle install` will install all dependencies
+5. create a file called `.env` and put your [discord token & application ID](https://discordapp.com/developers/applications/me) in the following style in it:
 ```
-
-If my bot crashes, or I run a restart command, the bot will exit and update itself as shown.
-
-## Adding commands and events
-
-Following `discordrb`'s [documentation](http://www.rubydoc.info/gems/discordrb), adding new commands and events is "easy"
-
-### Adding a command
-
-Create a new `*.rb` file here for your command: `/src/modules/commands/my_command.rb`
-
-Start with the following structure, and fill in whatever you would like that command to do, following `discordrb`'s documenation:
-
-```ruby
-module Bot::DiscordCommands
-  # Document your command
-  # in some YARD comments here!
-  module MyCommand
-    extend Discordrb::Commands::CommandContainer
-    command :my_command do |event|
-      # do discord things!
-    end
-  end
-end
+TOKEN=mmsseggs9209q0q3359
+APPID=85322359235
 ```
+6. run the bot by executing `ruby main.rb`
 
-Save the file, and start the bot. The new command file will be detected and added into the bot automatically.
-
-### Adding an event
-
-Create a new `*.rb` file here for your command: `/src/modules/events/my_event.rb`
-
-Start with the following structure, and fill in whatever you would like that command to do, following `discordrb`'s documenation:
-
-```ruby
-module Bot::DiscordEvents
-  # Document your event
-  # in some YARD comments here!
-  module MyEvent
-    extend Discordrb::EventContainer
-    member_join do |event|
-      # do discord things!
-    end
-  end
-end
+## Run the bot at Heroku
+1. Create a new App
+2.
+3. Head to the Apps settings and add follwoing buildpacks:
 ```
-
-Save the file, and start the bot. The new event file will be detected and added into the bot automatically.
-
-## Generating docs
-
-Install YARD.
-
-`gem install yard`
-
-In the top level folder, run:
-
-`yardoc`
-
-Your docs will be generated in a new folder, `doc/`.
-
-## Checking style with rubocop
-
-Install rubocop.
-
-`gem install rubocop`
-
-In the top level folder, run:
-
-`rubocop`
-
-## Support
-
-Join us on the [Discord API server](https://discord.gg/0SBTUU1wZTWfFQL2)!
-
-You can find me on discord, I'm `z64#1337`.
+https://github.com/heroku/heroku-buildpack-ruby
+https://github.com/challengee/heroku-buildpack-libsodium.git
+https://github.com/HYPERHYPER/heroku-buildpack-ffmpeg.git
+```
