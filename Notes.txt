@@ -1,8 +1,0 @@
-I'm still a beginner in Ruby, so this will mostly come out as confusing.
-It works, and that's what counts, for now.
------------------------------------------------
-Version 0.1
------------------------------------------------
-Events contains all the responses.
-Modules contains all the commands.
------------------------------------------------

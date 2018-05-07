@@ -1,1 +1,2 @@
-worker: bundle exec ruby start.rb
+worker: bundle exec ruby Interrogator.rb
+worker: bundle exec ruby Interrogated.rb
