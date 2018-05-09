@@ -165,7 +165,7 @@ bot.command :help do |event|
     event.respond ":spy::skin-tone-2: #{event.user.mention} we have sent Team Meteor Grunts to capture you."
     event.user.pm.send_embed do |embed|
         embed.title = ':black_heart: Using Mukuro...'
-        embed.description = "**Mukuro** is a Discord Bot made by Venus, using **discordrb**. Call **Venus#8904** if you have any issues with me~"
+        embed.description = "**Mukuro** is a Discord Bot made by Venus, using **discordrb**. Call **Shawn#8904** if you have any issues with me~"
         embed.color = Discordrb::ColourRGB.new(0xb572b6).combined
     end
     event.user.pm.send_embed do |embed|
