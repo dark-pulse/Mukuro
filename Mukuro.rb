@@ -221,16 +221,16 @@ bot.command :addquote do |event, names, *args|
                 if s_user.name.include? names
                     $value_id = s_user.id
                     $value_server_id = event.server.id
-                    File.open("global.rb", "r+") do |file|
-                        $quotes_n += 1
-                        file.write("$quotes_n = #{$quotes_n}")
-                    end
                 end
             end
             if $value_id == nil
                 event.respond ":speech_balloon: There's no one named **#{names}** on this server!"
                 break
             else
+                File.open("global.rb", "r+") do |file|
+                    $quotes_n += 1
+                    file.write("$quotes_n = #{$quotes_n}")
+                end
                 event.respond "Added **#{$value_quote}** to **#{bot.user($value_id).name}** from **#{event.server.name}**"
                 File.open("quotes.rb", "a") {|f| f.write("
 $quotes['#{$quotes_n}'] = [#{$value_id}, #{$value_server_id}, %Q(#{$value_quote})]") }
