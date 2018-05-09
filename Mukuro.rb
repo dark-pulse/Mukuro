@@ -1,10 +1,10 @@
-require 'discordrb'
+﻿require 'discordrb'
 require_relative 'quotes'
 require_relative 'global'
 require_relative 'characters'
 
 ID = 427200629509980171
-TOKEN = 'NDI3MjAwNjI5NTA5OTgwMTcx.DdSh-Q.f3egQ3iyjA3EHGi7-wSkQ_emYYY'
+TOKEN = process.env.BOT_TOKEN
 PREFIX = 'm.'
 bot = Discordrb::Commands::CommandBot.new token: TOKEN, prefix: PREFIX
 roulette = ["Dead", "Dead","Alive","Dead","Dead"]
