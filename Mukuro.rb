@@ -240,23 +240,17 @@ $quotes['#{$quotes_n}'] = [#{$value_id}, #{$value_server_id}, %Q(#{$value_quote}
 end
 
 bot.command :eval do |evaluate, *args| # Args is whatever bit that comes after the command
-    user_id = "#{event.user.id}".to_i
-    load "#{user_id}.rb"
-    if $bot_perms == 'All'
         eval(args.join(' ')) # We use args.join(' ') so that all the args arguments are fused into one
-    else
-        evaluate.respond ":negative_squared_cross_mark: You do not have enough bot permissions!"
-    end
 end
 
 bot.command :kick do |event, *args|
-    if $bot.user(event.user.id).on(436231756929171456).permission?(:kick_members) == false
+    if bot.user(event.user.id).on(436231756929171456).permission?(:kick_members) == false
         event.respond(":negative_squared_cross_mark: You do not have permissions to Kick Members")
-    elsif $bot.user(442349017712820244).on(436231756929171456).permission?(:kick_members) == false
+    elsif bot.user(442349017712820244).on(436231756929171456).permission?(:kick_members) == false
         event.respond(":negative_squared_cross_mark: I do not have permissions to Kick Members")
     else
         event.respond ":white_check_mark: I have kicked **#{event.message.mentions[0].name}** with **#{event.user.name}**'s help.'"
-        $bot.kick(event.message.mentions[0], args.join(' '))
+        bot.kick(event.message.mentions[0], args.join(' '))
     end
 end
 
