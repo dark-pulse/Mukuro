@@ -231,6 +231,7 @@ bot.command :addquote do |event, names, *args|
                     $quotes_n += 1
                     file.write("$quotes_n = #{$quotes_n}")
                 end
+                $quotes["#{$quotes_n}"] = ["#{$value_id}".to_i, "#{$value_server_id}"to_i, %Q(#{$value_quote})
                 event.respond "Added **#{$value_quote}** to **#{bot.user($value_id).name}** from **#{event.server.name}**"
                 File.open("quotes.rb", "a") {|f| f.write("
 $quotes['#{$quotes_n}'] = [#{$value_id}, #{$value_server_id}, %Q(#{$value_quote})]") }
