@@ -200,7 +200,11 @@ bot.message(with_text: "#{PREFIX}quote") do |event|
          event.channel.send_embed do |embed|
                embed.author = Discordrb::Webhooks::EmbedAuthor.new(name: bot.user($quotes["#{r_n}"][0]).on($quotes["#{r_n}"][1]).display_name, icon_url: "https://cdn.discordapp.com/avatars/#{$quotes["#{r_n}"][0]}/#{bot.user($quotes["#{r_n}"][0]).avatar_id}.webp?size=1024")
                embed.description = $quotes["#{r_n}"][2].to_s
-               embed.colour = bot.user($quotes["#{r_n}"][0]).on($quotes["#{r_n}"][1]).colour.combined
+               if bot.user($quotes["#{r_n}"][0]).on($quotes["#{r_n}"][1]).colour.combined == nil
+                embed.colour = Discordrb::ColourRGB.new(0xffffff).combined
+               else
+                embed.colour = bot.user($quotes["#{r_n}"][0]).on($quotes["#{r_n}"][1]).colour.combined
+               end
                embed.footer = Discordrb::Webhooks::EmbedFooter.new(text: "Saved from #{bot.server($quotes["#{r_n}"][1]).name}", icon_url: bot.server($quotes["#{r_n}"][1]).icon_url) 
          end
 end
