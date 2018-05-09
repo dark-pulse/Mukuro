@@ -176,8 +176,11 @@ m.profile = Shows your profile page.
 m.char = Changes your favorite Reborn Character to a randomly chosen one.
 m.title = Changes your title on your profilge page.`
         
+**Moderation**
+`m.kick @member = Kicks the mentioned member from the server.`
+
 **Testing**
-`m.eval = Tests a ruby code`
+`m.eval = Tests a ruby code. Only works if you have all permissions from Mukuro.`
         
 **Quotes**
 `m.quote = Displays a random quote from this server.
