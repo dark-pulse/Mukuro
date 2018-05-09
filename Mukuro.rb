@@ -165,7 +165,7 @@ bot.command :help do |event|
     event.respond ":spy::skin-tone-2: #{event.user.mention} we have sent Team Meteor Grunts to capture you."
     event.user.pm.send_embed do |embed|
         embed.title = ':black_heart: Using Mukuro...'
-        embed.description = "**Mukuro** is a Discord Bot made by Venus, using **discordrb**. Call **Venus#9063** if you have any issues with me~"
+        embed.description = "**Mukuro** is a Discord Bot made by Venus, using **discordrb**. Call **Venus#8904** if you have any issues with me~"
         embed.color = Discordrb::ColourRGB.new(0xb572b6).combined
     end
     event.user.pm.send_embed do |embed|
@@ -235,7 +235,6 @@ bot.command :addquote do |event, names, *args|
                     $quotes_n += 1
                     file.write("$quotes_n = #{$quotes_n}")
                 end
-                $quotes["#{$quotes_n}"] = [$value_id.to_i, $value_server_id, %Q(#{$value_quote})]
                 event.respond "Added **#{$value_quote}** to **#{bot.user($value_id).name}** from **#{event.server.name}**"
                 File.open("quotes.rb", "a") {|f| f.write("
 $quotes['#{$quotes_n}'] = [#{$value_id}, #{$value_server_id}, %Q(#{$value_quote})]") }
