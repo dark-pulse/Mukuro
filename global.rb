@@ -1,1 +1,1 @@
-$quotes_n = 4
+$quotes_n = 3
