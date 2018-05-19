@@ -1,7 +1,7 @@
-require 'discordrb'
+﻿require 'discordrb'
 
 PREFIX = 'j!'
-TOKEN = 'NDQxNzEzMTUzNjEzNjI3NDIy.DdC85Q.KXtd2ENy4fjbCMJv5XPTwm73LsY'
+TOKEN = 'NDQxNzEzMTUzNjEzNjI3NDIy.DeI0RA.ZcpxnIjByMGM6491vz1SHlvchMU'
 bot = Discordrb::Commands::CommandBot.new token: TOKEN, prefix: PREFIX
 witches = [442774638444019733, 442774691128803338, 442774734212562955, 442774768899588145, 442774809357844510, 442802713227558912]
 bot.command :lobby do |event, *args|

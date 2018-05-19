@@ -1,6 +1,6 @@
 require 'discordrb'
 
-TOKEN = 'NDQyNzQ0MTkxNDcxMzIxMDg5.DdDrzg.jo6_ceP0pTBw0UXs_uEftxL54KA'
+TOKEN = 'NDQyNzQ0MTkxNDcxMzIxMDg5.DeI3Iw.RX6VyYG9eAnH5vBBstbz9jgnGPQ'
 bot = Discordrb::Bot.new token: TOKEN
 
 bot.message(in: 442774734212562955) do |event|
