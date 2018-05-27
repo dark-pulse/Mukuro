@@ -7,6 +7,8 @@ bot.message(in: 442723126045048832) do |event|
         # Code
     elsif event.user.id == 271097183292489729
         # Code
+    elsif event.user.id == 231915769976455178
+        bot.send_message(442724139015471104, "***__NickCrash:__*** — #{event.message.content}")
     else
         bot.send_message(442724139015471104, "***__???:__*** — #{event.message.content}")
     end
