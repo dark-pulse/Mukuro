@@ -11,6 +11,8 @@ bot.message(in: 442723126045048832) do |event|
         bot.send_message(442724139015471104, "***__NickCrash:__*** — #{event.message.content}")
     elsif event.user.id == 266227890318868491
         bot.send_message(442724139015471104, "***__L'Belle:__*** — #{event.message.content}")
+    elsif event.user.id == 279359081981018122
+        bot.send_message(442724139015471104, "***__Bok Choi:__*** — #{event.message.content}")
     else
         bot.send_message(442724139015471104, "***__???:__*** — #{event.message.content}")
     end
