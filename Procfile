@@ -1,10 +1,6 @@
-workera: bundle exec ruby Interrogator.rb
-workerb: bundle exec ruby Interrogated.rb
-workerc: bundle exec ruby Judge.rb
-workerd: bundle exec ruby Medium.rb
-workere: bundle exec ruby Spirits.rb
-workerf: bundle exec ruby Witch-1.rb
-workerg: bundle exec ruby Witch-2.rb
-workerh: bundle exec ruby Witch-3.rb
-workeri: bundle exec ruby Witch-4.rb
-workerj: bundle exec ruby Witch-5.rb
+workera: bundle exec ruby magikarp.rb
+workerb: bundle exec ruby Shuckle.rb
+workerc: bundle exec ruby wynaut-.rb
+workerd: bundle exec ruby litwick.rb
+workere: bundle exec ruby darkrai.rb
+workerf: bundle exec ruby rainbowkarp.rb
