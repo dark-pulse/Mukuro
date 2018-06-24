@@ -5,3 +5,4 @@ workerd: bundle exec ruby Arclight.rb
 workere: bundle exec ruby Lin.rb
 workerf: bundle exec ruby Shade.rb
 workerg: bundle exec ruby Serra.rb
+workerh: bundle exec ruby Cain.rb
