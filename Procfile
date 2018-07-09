@@ -1,1 +1,15 @@
-workera: bundle exec ruby Ghetsias.rb
+carbink: bundle exec ruby Carbink.rb
+entei: bundle exec ruby Entei.rb
+gallade: bundle exec ruby Gallade.rb
+goodra: bundle exec ruby Goodra.rb
+granbull: bundle exec ruby Granbull.rb
+growlithe: bundle exec ruby Growlithe.rb
+lycanrocdusk: bundle exec ruby Lycanroc-Dusk.rb
+lycanrocmidday: bundle exec ruby Lycanroc-Midday.rb
+lycanrocmidnight: bundle exec ruby Lycanroc-Midnight.rb
+marshadow: bundle exec ruby Marshadow.rb
+mew: bundle exec ruby Mew.rb
+nidoking: bundle exec ruby Nidoking.rb
+plusle: bundle exec ruby Plusle.rb
+vikavolt: bundle exec ruby Vikavolt.rb
+zoroark: bundle exec ruby Zoroark.rb
