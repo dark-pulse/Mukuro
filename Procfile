@@ -1,9 +1,11 @@
 carbink: bundle exec ruby Carbink.rb
 entei: bundle exec ruby Entei.rb
+dialga: bundle exec ruby Dialga.rb
 gallade: bundle exec ruby Gallade.rb
 goodra: bundle exec ruby Goodra.rb
 granbull: bundle exec ruby Granbull.rb
 growlithe: bundle exec ruby Growlithe.rb
+kecleon: bundle exec ruby Kecleon.rb
 lycanrocdusk: bundle exec ruby Lycanroc-Dusk.rb
 lycanrocmidday: bundle exec ruby Lycanroc-Midday.rb
 lycanrocmidnight: bundle exec ruby Lycanroc-Midnight.rb
